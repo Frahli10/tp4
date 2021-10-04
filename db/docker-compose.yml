@@ -1,0 +1,13 @@
+version: '3'
+services:
+    mysql56:
+        image: mysql:5.6
+        restart: unless-stopped
+        command: --max_allowed_packet=325058560
+        container_name: tp-data
+        ports:
+            - "3307:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+        volumes:
+            - /var/lib/mysql56-data:/var/lib/mysql
